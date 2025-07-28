@@ -86,4 +86,8 @@ def predict_premium(data: UserInput):
 
     prediction = model.predict(input_df)[0]
 
-    return JSONResponse(status_code=200, content={'predicted_category': prediction})
+    return JSONResponse(status_code=200, content={'response': {
+        'predicted_category': prediction,
+        'confidence': 0.95,  # mock
+        'class_probabilities': {"Low": 0.95, "Medium": 0.04, "High": 0.01}  # mock
+    }})
